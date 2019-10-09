@@ -1,0 +1,61 @@
+
+   
+
+
+<ion-content>
+    <ion-searchbar search-icon="search" (ionChange)="getCurrentWeather($event)" ></ion-searchbar>
+    <ion-list *ngIf="temperature && pressure && humidity && description">
+        <ion-item color="trans" style="color: rgb(0, 0, 0); text-align:center">
+            <div>
+              {{displayedCity}}
+            </div>
+        </ion-item>
+      <!-- clear skies -->
+        <ion-item *ngIf="description === 'clear sky'" color="trans" lines="none" class="centered-text clear"  style="background-image: url('assets\\background\\clear-sky.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+          <img src ="http://openweathermap.org/img/wn/01d@2x.png" >
+          <div style="display: block; margin-top: 50px;" >
+
+              {{description}}
+          </div>
+        </ion-item>
+      <!-- scattered clouds -->
+        <ion-item *ngIf="description === 'scattered clouds'" color="trans" lines="none" class="centered-text clear" style="background-image: url('assets\\background\\scattered-clouds.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+            <img src ="http://openweathermap.org/img/wn/03d@2x.png" >
+            <div style="display: block; margin-top: 50px;" >
+              {{description}}
+            </div>
+        </ion-item>
+      <!-- overcast clouds -->
+        <ion-item *ngIf="description === 'overcast clouds'" color="trans" lines="none" class="centered-text clear"  style="background-image: url('assets\\background\\overcast-clouds.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+            <img src ="http://openweathermap.org/img/wn/03d@2x.png" >
+            <div style="display: block; margin-top: 50px;">
+                {{description}}
+            </div>
+          </ion-item>
+      <!-- light rain -->
+        <ion-item *ngIf="description === 'light rain'" color="trans" lines="none" class="centered-text clear"  style="background-image: url('assets\\background\\light-rain.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+            <img src ="http://openweathermap.org/img/wn/10d@2x.png" >
+              <div style="display: block; margin-top: 50px;">
+                {{description}}
+              </div>
+        </ion-item>
+      <!-- heavy rain -->
+        <ion-item *ngIf="description === 'heavy-rain'" color="trans" lines="none" class="centered-text clear"  style="background-image: url('assets\\background\\heavy-rain.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+            <img src ="http://openweathermap.org/img/wn/09d@2x.png" >
+                <div style="display: block; margin-top: 50px;">
+                  {{description}}
+                </div>
+        </ion-item>
+      <!-- broken clouds -->
+        <ion-item *ngIf="description === 'broken clouds'" color="trans" lines="none" class="centered-text clear"  style="background-image: url('assets\\background\\broken-clouds.jpg'); height: 300px; text-transform: capitalize; color: #fff; text-align:center">
+            <img src ="http://openweathermap.org/img/wn/04d@2x.png">
+            <div style="display: block; margin-top: 50px;">
+
+            </div>{{description}}
+        </ion-item>
+              
+        <ion-item class="centered-text">Temperature: {{temperature}}</ion-item>
+        <ion-item class="centered-text">Pressure: {{pressure}}</ion-item>
+        <ion-item class="centered-text">Humidity: {{humidity}}</ion-item>
+    </ion-list>
+</ion-content>

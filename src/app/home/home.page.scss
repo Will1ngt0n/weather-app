@@ -1,0 +1,14 @@
+.clear {
+	background-color:  rgba(255, 0, 0, 0) !important
+}
+
+.centered-text {
+	--text-align: center !important;
+}
+
+
+:host{
+	ion-item{
+		text-align: center;
+	}
+}
